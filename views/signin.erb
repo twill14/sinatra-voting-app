@@ -1,0 +1,21 @@
+  <% if session[:failure]%>
+    <p><%= session.delete(:failure)%></p>
+  <% end %>
+
+  <%if session[:success] %>
+   <p><%= session.delete(:success)%></p>
+  <% end %>
+
+  <form method="post" action="/signin">
+    <div>
+      Username:
+      <input id="username" name="username"><br>
+      Password:
+      <input id="password" name="password"><br>
+      <button type="submit" class ="btn btn-primary">Sign In</button>
+    </div>
+  </form>
+
+   <form method="get" action="/register">
+      <button type="submit">Sign Up</button>
+  </form>

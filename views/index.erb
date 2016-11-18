@@ -1,0 +1,24 @@
+<form action='/cast' method='post'>
+  <ul class='unstyled'>
+    <% Choices.each do |id, text| %>
+      <li>
+        <label class='radio'>
+          <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' checked/>
+          <%= text %>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+  <button type='submit' class='btn btn-primary'>Cast this vote!</button>
+</form>
+
+<% if session[:user] %>
+  <form method="post" action="/signout">
+    <p>
+      Signed in as <%= session[:user] %>.
+      <button type="submit">Sign Out</button>
+    </p>
+  </form>
+<% else %>
+  <p><a href="/signin">Sign In</a></p>
+<% end %>

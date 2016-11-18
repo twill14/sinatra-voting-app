@@ -1,0 +1,7 @@
+  <% if session[:failure]%>
+    <p><%= session.delete(:failure)%></p>
+    <p><a href='/results'>See the results!</a></p>
+  <% else %>
+    <p>You voted for: <%= Choices[@vote] %></p>
+    <p><a href='/results'>See the results!</a></p>
+  <% end %>
